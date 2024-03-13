@@ -8,7 +8,7 @@ async function login(userLoginFields) {
 	const { email, password } = userLoginFields;
 
 	const user = await User.getUserByEmail(email);
-	if (!user) throw new Error("No usser found!");
+	if (!user) throw new Error("No user found!");
 
 	const matchedPassword = await comparePassword(password, user.password);
 	if (!matchedPassword) throw new Error("Incorrect Password!");

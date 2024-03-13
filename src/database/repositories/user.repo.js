@@ -6,8 +6,8 @@ class User {
 		return UserModel.find();
 	}
 
-	static async getUserById(id) {
-		return UserModel.findById(id);
+	static async getUserById(_id) {
+		return UserModel.findById(_id);
 	}
 
 	static async getUserByEmail(email) {
@@ -24,8 +24,8 @@ class User {
 		return UserModel.updateOne(filter, updateData);
 	}
 
-	static async deleteUser(filter) {
-		return UserModel.deleteOne(filter);
+	static async deleteUserById(_id) {
+		return UserModel.deleteOne({ _id });
 	}
 }
 
