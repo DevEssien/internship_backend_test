@@ -10,6 +10,9 @@ const config = {
 		port: +process.env.PORT,
 		env: process.env.APP_ENV,
 	},
+	db: {
+		uri: process.env.LOCAL_DB_URI,
+	},
 };
 
 module.exports = config;
