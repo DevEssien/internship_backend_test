@@ -1,9 +1,10 @@
 const User = require("../../database/repositories/user.repo");
 
 class UserService {
-	async getAllUsers() {
-		const users = await User.getAllUsers();
-		if (users) throw new Error("no user");
+	static async getAllUsers() {
+		const users = await User.getUsers();
+
+		if (!users) throw new Error("no user");
 
 		return {
 			message: "Fetched All Users!",
@@ -11,7 +12,7 @@ class UserService {
 		};
 	}
 
-	async createUser(userData) {
+	static async createUser(userData) {
 		const { email } = userData;
 
 		const foundUser = await User.getUserByEmail(email);
@@ -20,10 +21,7 @@ class UserService {
 		const newUser = await User.createUser({ ...userData });
 		if (!newUser) throw new Error("Unable to create user!");
 
-		return {
-			message: "Created a new User!",
-			data: { createdUser: { ...newUser._doc, password: "hidden" } },
-		};
+		return newUser;
 	}
 }
 

@@ -9,6 +9,8 @@ const config = {
 	app: {
 		port: +process.env.PORT,
 		env: process.env.APP_ENV,
+		secret: process.env.SECRET,
+		salt: +process.env.SALT,
 	},
 	db: {
 		uri: process.env.LOCAL_DB_URI,
