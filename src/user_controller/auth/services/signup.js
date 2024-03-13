@@ -1,4 +1,3 @@
-const User = require("../../../database/repositories/user.repo");
 const UserService = require("../../services/user.service");
 const { generateJwt, hashPassword } = require("../../../utlls/index");
 
