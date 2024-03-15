@@ -1,4 +1,3 @@
-const { Model } = require("mongoose");
 const UserModel = require("../model/User");
 
 class User {

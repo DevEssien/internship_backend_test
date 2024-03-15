@@ -12,9 +12,8 @@ async function signup(createUserData) {
 
 	const newUser = await UserService.createUser({ ...createUserData, password: hashedPassword });
 
-	//generate jwt
 	const token = await generateJwt({
-		id: createUserData?.id,
+		_id: createUserData?._id,
 		flag: TokenFlag.AUTH,
 		timestamp: Date.now(),
 	});

@@ -8,7 +8,7 @@ class UserService {
 
 		return {
 			message: "Fetched All Users!",
-			data: { ...users._doc, password: "hidden" },
+			data: { users },
 		};
 	}
 
