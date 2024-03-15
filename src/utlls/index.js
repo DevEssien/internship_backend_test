@@ -9,8 +9,18 @@ exports.generateJwt = async function (payload) {
 
 	return new Promise((resolve, reject) => {
 		jwt.sign(payload, secret, { expiresIn: expirationTime }, (error, token) => {
-			if (error) reject(error);
+			if (error) return reject(error);
 			return resolve(token);
+		});
+	});
+};
+
+exports.decodeToken = (token) => {
+	return new Promise((resolve, reject) => {
+		jwt.verify(token, secret, (error, decodedToken) => {
+			console.log("decoded token ", decodedToken);
+			if (error) return reject(error);
+			return resolve(decodedToken);
 		});
 	});
 };

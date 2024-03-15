@@ -14,7 +14,7 @@ async function login(userLoginFields) {
 	if (!matchedPassword) throw new Error("Incorrect Password!");
 
 	const token = await generateJwt({
-		id: user.id,
+		_id: user._id,
 		flag: TokenFlag.AUTH,
 		timestamp: Date.now(),
 	});
