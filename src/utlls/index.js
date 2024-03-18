@@ -18,7 +18,6 @@ exports.generateJwt = async function (payload) {
 exports.decodeToken = (token) => {
 	return new Promise((resolve, reject) => {
 		jwt.verify(token, secret, (error, decodedToken) => {
-			console.log("decoded token ", decodedToken);
 			if (error) return reject(error);
 			return resolve(decodedToken);
 		});
